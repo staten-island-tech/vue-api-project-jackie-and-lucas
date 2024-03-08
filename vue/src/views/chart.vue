@@ -1,17 +1,23 @@
 <template>
     <div>
-
+        <p>`${item}`</p>
     </div>
 </template>
 
 <script setup>
+import Pullapi from "@/components/icon.vue";
 import { ref, onMounted} from "vue";
+const item = ref("");
 async function api(){
- const api = await fetch("https://data.cityofnewyork.us/resource/jb7j-dtam.json");
- const data = await api.json();
+ let api = await fetch("https://data.cityofnewyork.us/resource/jb7j-dtam.json");
+ let data = await api.json();
+ console.log(data[100])
+ item.value = data[0]
 }
 
-api();
+onMounted(()=>{
+    api();
+});
 
 </script>
 
