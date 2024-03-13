@@ -10,13 +10,13 @@ const item = ref("");
 async function api(){
 let api = await fetch("https://data.cityofnewyork.us/resource/jb7j-dtam.json");
 let data = await api.json();
-item.ref = data.value;
-return item
+item.ref = data[100];
+console.log(item)
+
 }
 
 onMounted(()=>{
   api();
-  console.log(item)
 });
 
 </script>
