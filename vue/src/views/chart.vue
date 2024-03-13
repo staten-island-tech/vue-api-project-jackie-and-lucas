@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="cards">
         <card v-for="something in item" :key = item :rate="something" />
     </div>
 </template>
@@ -21,9 +21,13 @@ onMounted(()=>{
     api();
 
 });
-
+export {item}
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
 </style>
