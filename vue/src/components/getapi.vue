@@ -6,7 +6,8 @@ async function api(){
  let data = await api.json();
  console.log(data[0])
  item.value = data;
- console.log(item.value)
+ item = item.value
+ console.log(item)
 }
 
 export {item, api};
