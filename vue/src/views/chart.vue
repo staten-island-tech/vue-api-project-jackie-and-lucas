@@ -1,27 +1,23 @@
 <template>
     <div>
-        <p class="item"></p>
+        <card v-for="something in item" :key = item :rate="something" />
     </div>
 </template>
 
 <script setup>
-import thing from "@/components/API.vue";
-import { ref, onMounted} from "vue";
-const k = ref(thing);
-async function api(){
- let api = await fetch("https://data.cityofnewyork.us/resource/jb7j-dtam.json");
- let data = await api.json();
- console.log(data[100])
- item.value = data[0]
-}
-console.log(k);
-
+import card from "@/components/icon.vue"
+import {item, api} from "@/components/getapi.vue"
+import { onMounted } from "vue";
 onMounted(()=>{
     api();
-});
 
+});
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
 </style>

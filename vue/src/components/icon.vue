@@ -1,7 +1,7 @@
 <template>
     <div>
-<p>{{rate[0].year}}</p>
-<p>{{rate[0].leadin_cause}}</p>
+<p>{{rate.year}}</p>
+<p>{{rate.leadin_cause}}</p>
     </div>
 </template>
 
