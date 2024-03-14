@@ -1,20 +1,17 @@
 <template>
-    <div class="cards">
+    <div>
         <card v-for="something in item" :key = item :rate="something" />
     </div>
 </template>
 
 <script setup>
 import card from "@/components/icon.vue"
-import { ref, onMounted} from "vue";
-import {item} from "@/components/getapi.vue"
-
-
+import {item, api} from "@/components/getapi.vue"
+import { onMounted } from "vue";
 onMounted(()=>{
     api();
 
 });
-export {item}
 </script>
 
 <style scoped>
