@@ -6,11 +6,11 @@
 
 <script setup>
 import card from "@/components/icon.vue"
-import {item, api} from "@/components/getapi.vue"
+import {item, api,} from "@/components/getapi.vue"
 import { onMounted } from "vue";
 onMounted(()=>{
     api();
-
+    console.log(item.value)
 });
 </script>
 
