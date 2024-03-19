@@ -50,7 +50,6 @@ export default {
 import { Bar } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 import {item, api} from "@/components/getapi.vue"
-console.log(item)
 import { onMounted } from "vue";
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
@@ -59,8 +58,16 @@ export default {
   setup(){
     onMounted(()=>{
     api();
-});
-  },
+    const base = item.value
+    for(let i = 0; i <= 100; i++) {
+      console.log(base[i])
+  };
+  
+  });
+},
+
+
+  
   name: 'BarChart',
   components: { Bar },
   data() {
@@ -68,7 +75,7 @@ export default {
       chartData: {
         labels: ['Ya'],
         datasets: [
-          {label: item.value.year, backgroundColor: '#f87979', data: [40, 20, 12]},
+          {label: 'net', backgroundColor: '#f87979', data: [40, 20, 12]},
           {label: 'Data Two', backgroundColor: '#0000FF', data: [80, 32, 9]},
           {label: 'Data Three', backgroundColor: '#FFFF00', data: [150, 95, 55]},
         ]
