@@ -62,7 +62,6 @@ export default {
     for(let i = 0; i <= 100; i++) {
       console.log(base[i])
   };
-  
   });
 },
 
