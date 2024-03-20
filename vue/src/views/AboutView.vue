@@ -59,9 +59,12 @@ export default {
     onMounted(()=>{
     api();
     const base = item.value
-    for(let i = 0; i <= 100; i++) {
-      console.log(base[i])
-  };
+    for(let i = 0; i <= 1000; i++) {
+      console.log(item)
+      const ass = (base[i])
+      console.log(ass)
+    };
+
   });
 },
 
