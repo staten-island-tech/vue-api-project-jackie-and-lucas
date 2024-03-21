@@ -50,7 +50,7 @@ export default {
 import { Bar } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 import {item, api} from "@/components/getapi.vue"
-import { onMounted } from "vue";
+import { onMounted, toRaw } from "vue";
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
@@ -58,14 +58,12 @@ export default {
   setup(){
     onMounted(()=>{
     api();
-    const base = item.value
+  });
+  const base = toRaw(item.value)
     for(let i = 0; i <= 1000; i++) {
-      console.log(item)
-      const ass = (base[i])
-      console.log(ass)
+      console.log(toRaw(base[i].Leading_cause))
     };
 
-  });
 },
 
 
