@@ -61,7 +61,7 @@ export default {
   });
   const base = toRaw(item.value)
     for(let i = 0; i <= 1000; i++) {
-      console.log(toRaw(base[i].Leading_cause))
+      console.log(toRaw(base[i]))
     };
 
 },
