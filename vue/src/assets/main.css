@@ -5,20 +5,19 @@
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
-  right: 0;
 }
 
 a,
 .green {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 0.2);
+  color: hsl(0, 100%, 51%);
   transition: 0.4s;
   padding: 3px;
 }
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    background-color: hsla(12, 82%, 38%, 0.541);
   }
 }
 
