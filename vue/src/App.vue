@@ -4,15 +4,15 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <header class="header">
+    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <!-- <HelloWorld msg="You did it!" /> -->
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/">Home</RouterLink><br>
+        <RouterLink to="/about">About</RouterLink><br>
         <RouterLink to="/api">api</RouterLink>
       </nav>
     </div>
@@ -22,11 +22,16 @@ import HelloWorld from './components/HelloWorld.vue'
 </template>
 
 <style scoped>
-header {
+.header {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  display: flex;
   line-height: 1.5;
   max-height: 100vh;
 }
 
+/* Your existing styles */
 .logo {
   display: block;
   margin: 0 auto 2rem;
@@ -49,7 +54,7 @@ nav a.router-link-exact-active:hover {
 
 nav a {
   display: inline-block;
-  padding: 0 1rem;
+  padding: 0 2rem;
   border-left: 1px solid var(--color-border);
 }
 
@@ -58,9 +63,7 @@ nav a:first-of-type {
 }
 
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
+  .header {
     padding-right: calc(var(--section-gap) / 2);
   }
 
@@ -68,7 +71,7 @@ nav a:first-of-type {
     margin: 0 2rem 0 0;
   }
 
-  header .wrapper {
+  .wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
