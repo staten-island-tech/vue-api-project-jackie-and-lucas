@@ -17,8 +17,9 @@ main {
 }
 .text{
   position: absolute;
-  width: 30vh;
-  left: 45%;
+  width: 40vh;
+  left: 50%;
   font-size: xx-large;
+  color: white;
 }
 </style>

@@ -14,8 +14,15 @@ import HelloWorld from './components/HelloWorld.vue'
 
       <nav>
         <RouterLink to="/">Home</RouterLink><br>
-        <RouterLink to="/about">About</RouterLink><br>
-        <RouterLink to="/api">api</RouterLink>
+        <RouterLink to="/year2007">2007</RouterLink><br>
+        <RouterLink to="/year2008">2008</RouterLink><br>
+        <RouterLink to="/year2009">2009</RouterLink><br>
+        <RouterLink to="/year2010">2010</RouterLink><br>
+        <RouterLink to="/year2011">2011</RouterLink><br>
+        <RouterLink to="/year2012">2012</RouterLink><br>
+        <RouterLink to="/year2013">2013</RouterLink><br>
+        <RouterLink to="/year2014">2014</RouterLink><br>
+        <RouterLink to="/all">All</RouterLink><br>
       </nav>
     </div>
   </header>
@@ -26,7 +33,7 @@ import HelloWorld from './components/HelloWorld.vue'
 <style scoped>
 .header {
   position: absolute;
-  top: 10%;
+  top: 3%;
   left: 1%;
   display: flex;
   line-height: 1.5;
@@ -41,7 +48,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
 .logo {
   display: block;
-  padding-bottom: 2vh; 
+  padding-bottom: 1vh; 
 }
 
 nav {
