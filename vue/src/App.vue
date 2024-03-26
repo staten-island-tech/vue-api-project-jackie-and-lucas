@@ -5,8 +5,10 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header class="header">
-    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
-
+    <div class="logos">
+      <img class="logo" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExam85MzN0bmVwYjltY25rYWUycGxnczZwMmUzMWN1M2h5MG80dW5xOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PgXcWhrL0gjQlAhHUY/giphy.gif" ></img>
+      <img class="logo" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGJjbW94dHgyNzNyd2xkeTF1N284OXdlMGFsa2RoMHYzbXR3a28xMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Oj8pUuT5FOpxHH9LIk/giphy.gif" ></img>
+    </div>
     <div class="wrapper">
       <!-- <HelloWorld msg="You did it!" /> -->
 
@@ -24,17 +26,22 @@ import HelloWorld from './components/HelloWorld.vue'
 <style scoped>
 .header {
   position: absolute;
-  top: 50%;
-  left: 2%;
+  top: 10%;
+  left: 1%;
   display: flex;
   line-height: 1.5;
   max-height: 100vh;
+  align-items: center;
 }
 
-/* Your existing styles */
+.logos {
+  display: flex;
+  flex-direction: column;
+}
+
 .logo {
   display: block;
-  margin: 0 auto 2rem;
+  padding-bottom: 2vh; 
 }
 
 nav {
