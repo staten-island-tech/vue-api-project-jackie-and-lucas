@@ -49,11 +49,6 @@ const router = createRouter({
       name: '2014',
       component: () => import('../views/year2014.vue'),
     },
-    {
-      path: '/all',
-      name: 'all',
-      component: () => import('../views/all.vue'),
-    },
   ]
 })
 

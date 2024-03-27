@@ -22,7 +22,6 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/year2012">2012</RouterLink><br>
         <RouterLink to="/year2013">2013</RouterLink><br>
         <RouterLink to="/year2014">2014</RouterLink><br>
-        <RouterLink to="/all">All</RouterLink><br>
       </nav>
     </div>
   </header>
@@ -94,7 +93,7 @@ nav a:first-of-type {
   nav {
     text-align: left;
     margin-left: -1rem;
-    font-size: 1rem;
+    font-size: 2rem;
 
     padding: 1rem 0;
     margin-top: 1rem;
