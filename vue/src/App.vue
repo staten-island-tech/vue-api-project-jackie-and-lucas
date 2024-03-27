@@ -6,10 +6,7 @@ import HelloWorld from './components/HelloWorld.vue'
 <template>
   <header class="header">
     <div class="logos">
-      <img class="logo" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExam85MzN0bmVwYjltY25rYWUycGxnczZwMmUzMWN1M2h5MG80dW5xOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PgXcWhrL0gjQlAhHUY/giphy.gif" ></img>
-      <img class="logo" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGJjbW94dHgyNzNyd2xkeTF1N284OXdlMGFsa2RoMHYzbXR3a28xMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Oj8pUuT5FOpxHH9LIk/giphy.gif" ></img>
     </div>
-    <div class="wrapper">
       <!-- <HelloWorld msg="You did it!" /> -->
 
       <nav>
@@ -23,26 +20,26 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/year2013">2013</RouterLink><br>
         <RouterLink to="/year2014">2014</RouterLink><br>
       </nav>
-    </div>
   </header>
 
   <RouterView />
 </template>
 
-<style scoped>
+<style>
 .header {
   position: absolute;
-  top: 3%;
-  left: 1%;
+  left: 23%;
+  top: 50px;
   display: flex;
   line-height: 1.5;
   max-height: 100vh;
   align-items: center;
+  width: 100%;
 }
 
 .logos {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .logo {
@@ -55,6 +52,11 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  display: flex;
+  place-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: fixed;
 }
 
 nav a.router-link-exact-active {
@@ -68,7 +70,6 @@ nav a.router-link-exact-active:hover {
 nav a {
   display: inline-block;
   padding: 0 2rem;
-  border-left: 1px solid var(--color-border);
 }
 
 nav a:first-of-type {
@@ -76,9 +77,6 @@ nav a:first-of-type {
 }
 
 @media (min-width: 1024px) {
-  .header {
-    padding-right: calc(var(--section-gap) / 2);
-  }
 
   .logo {
     margin: 0 2rem 0 0;
@@ -88,12 +86,15 @@ nav a:first-of-type {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+    flex-direction: row;
+    padding: 0;
   }
 
   nav {
     text-align: left;
     margin-left: -1rem;
     font-size: 2rem;
+    font-family:cursive;
 
     padding: 1rem 0;
     margin-top: 1rem;

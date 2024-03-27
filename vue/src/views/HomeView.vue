@@ -21,5 +21,6 @@ main {
   left: 50%;
   font-size: xx-large;
   color: white;
+  font-family:cursive;
 }
 </style>
