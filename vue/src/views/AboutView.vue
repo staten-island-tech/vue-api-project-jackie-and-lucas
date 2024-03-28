@@ -12,9 +12,12 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 function year(yearNum, api){
   const yearfilter = api.filter((num) => num.year == yearNum)
   console.log(yearfilter)
+  const deathnum = yearfilter.map((death) => death.deaths)
+  console.log(deathnum)
   let startnum = 0;
-  const totaldeath = yearfilter.reduce((totalnow, deathnow) => (totalnow + deathnow, startnum))
-return totaldeath}
+  const totaldeath = yearfilter.reduce((totalnow, deathnow) => (totalnow.deaths + totalnow.deaths))
+  console.log(totaldeath)
+}
 
 export default {
   name: 'BarChart',
@@ -26,24 +29,23 @@ export default {
           {
             label: 'Total Deaths Per Year',
             backgroundColor: '#f87979',
-            data: [year2014, year2013, year2012, year2011]
+            data: []
           }]}
-  }),
+  })
+  ,
   async mounted () {
     this.loaded = false
-
     try {
       const url = await fetch('https://data.cityofnewyork.us/resource/jb7j-dtam.json')
       const data = await url.json();
-      const year2014 = year(2007, data)
-      const year2013 = year(2008, data)
-      const year2012 = year(2009, data)
-      const year2011 = year(2010, data)
-      const year2010 = year(2011, data)
-      const year2009 = year(2012, data)
-      const year2008 = year(2013, data)
-      const year2007 = year(2014, data)
-      this.chartdata = userlist
+      const year2014 = year(2014, data)
+      const year2013 = year(2013, data)
+      const year2012 = year(2012, data)
+      const year2011 = year(2011, data)
+      const year2010 = year(2010, data)
+      const year2009 = year(2009, data)
+      const year2008 = year(2008, data)
+      const year2007 = year(2007, data)
 
       this.loaded = true
     } catch (e) {
