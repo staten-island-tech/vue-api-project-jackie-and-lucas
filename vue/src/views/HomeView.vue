@@ -1,5 +1,5 @@
 <template>
-  <h6 class="apiName">New York City Leaded Causes of Death</h6>
+  <h6 class="apiName" style="color: black; ">New York City Leading Causes of Death</h6>
   <div class="container">
     <Bar v-if="loaded" :data="chartData" />
   </div>
