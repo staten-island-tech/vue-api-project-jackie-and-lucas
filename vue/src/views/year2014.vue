@@ -1,11 +1,8 @@
 <template>
     <div class="container">
-        <h1>Leading Causes</h1>
         <Pie id="leading_cause" v-if="loaded" :data="lcData" />
-        <h1>Male/Female Ratio</h1>
-            <!-- <Pie id="male/female" v-if="loaded" :data="mfData" /> -->
-        <h1>Ethnicities</h1>    
-    <!-- <Pie id="ethnicity" v-if="loaded" :data="eData" /> -->
+        <Pie id="male_female" v-if="loaded" :data="mfData" />
+        <Pie id="ethnicity" v-if="loaded" :data="ethData" />
     </div>
 </template>
 
@@ -14,11 +11,10 @@ import { Pie } from 'vue-chartjs'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
+
 function lc(leadingCause, api) {
     const yearfilter = api.filter((num) => num.year == 2014)
-    console.log(yearfilter, "year2014")
     const lcfilter = yearfilter.filter((num) => num.leading_cause == leadingCause)
-    console.log(lcfilter, "leading cause")
     const totaldeath = lcfilter.reduce((totalnow, deathnow) => {
         if (deathnow.deaths !== ".") {
             return totalnow + parseInt(deathnow.deaths);
@@ -26,23 +22,32 @@ function lc(leadingCause, api) {
             return totalnow;
         }
     }, 0);
-    console.log(totaldeath)
     return totaldeath;
 }
 
 function mf(mf, api) {
-    const yearfilter = api.filter((num) => num.year == 2007)
-    console.log(yearfilter, "year2014")
-    const lcfilter = yearfilter.filter((num) => num.leading_cause == leadingCause)
-    console.log(lcfilter, "leading cause")
-    const totaldeath = lcfilter.reduce((totalnow, deathnow) => {
+    const yearfilter = api.filter((num) => num.year == 2014)
+    const mfFilter = yearfilter.filter((num) => num.sex == mf)
+    const totaldeath = mfFilter.reduce((totalnow, deathnow) => {
         if (deathnow.deaths !== ".") {
             return totalnow + parseInt(deathnow.deaths);
         } else {
             return totalnow;
         }
     }, 0);
-    console.log(totaldeath)
+    return totaldeath;
+}
+
+function ethnicities(race_ethnicity, api) {
+    const yearfilter = api.filter((num) => num.year == 2014)
+    const ethFilter = yearfilter.filter((num) => num.race_ethnicity == race_ethnicity)
+    const totaldeath = ethFilter.reduce((totalnow, deathnow) => {
+        if (deathnow.deaths !== ".") {
+            return totalnow + parseInt(deathnow.deaths);
+        } else {
+            return totalnow;
+        }
+    }, 0);
     return totaldeath;
 }
 
@@ -67,13 +72,35 @@ export default {
                     data: []
                 }]
         },
-    })
-    ,
+        mfData: {
+            labels: ["Male", "Female"],
+            datasets: [
+                {
+                    label: 'Deaths',
+                    backgroundColor: ['#ff0000', '#0000ff'],
+                    borderColor: `#000000`,
+                    borderWidth: 1,
+                    data: []
+                }]
+        },
+        ethData: {
+            labels: ["Asian and Pacific Islander", "Black Non-Hispanic",  "Other Race/ Ethnicity", "Hispanic", "White Non-Hispanic", "Not Stated/Unknown" ], // Add your actual ethnicities here
+            datasets: [
+                {
+                    label: 'Deaths',
+                    backgroundColor: ['#ff0000', '#ff7f00', '#ffff00', '#ff00ff',  '#4b0082', '#ff4500'],
+                    borderColor: `#000000`,
+                    borderWidth: 1,
+                    data: []
+                }]
+        },
+    }),
     async mounted() {
         this.loaded = false
         try {
             const url = await fetch('https://data.cityofnewyork.us/resource/jb7j-dtam.json')
             const data = await url.json();
+            
             this.lcData.datasets[0].data = [
                 lc("Malignant Neoplasms (Cancer: C00-C97)", data),
                 lc("Accidents Except Drug Posioning (V01-X39, X43, X45-X59, Y85-Y86)", data),
@@ -95,7 +122,20 @@ export default {
                 lc("Intentional Self-Harm (Suicide: X60-X84, Y87.0)", data),
                 lc("Viral Hepatitis (B15-B19)", data),
                 lc("All Other Causes", data),
+            ];
 
+            this.mfData.datasets[0].data = [
+                mf("M", data),
+                mf("F", data),
+            ];
+
+            this.ethData.datasets[0].data = [
+                ethnicities("Asian and Pacific Islander", data),
+                ethnicities("Black Non-Hispanic", data),
+                ethnicities("Other Race/ Ethnicity", data),
+                ethnicities("Hispanic", data),
+                ethnicities("White Non-Hispanic", data),
+                ethnicities("Not Stated/Unknown", data),
             ];
 
             this.loaded = true
@@ -105,3 +145,18 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 55%;
+}
+
+canvas {
+  width: 50%;
+  height: 50%;
+}
+</style>
