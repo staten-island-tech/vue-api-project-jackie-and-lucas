@@ -10,42 +10,42 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/year2007',
+      path: '/2007',
       name: '2007',
       component: () => import('../views/year2007.vue'),
     },
     {
-      path: '/year2008',
+      path: '/2008',
       name: '2008',
       component: () => import('../views/year2008.vue'),
     },
     {
-      path: '/year2009',
+      path: '/2009',
       name: '2009',
       component: () => import('../views/year2009.vue'),
     },
     {
-      path: '/year2010',
+      path: '/2010',
       name: '2010',
       component: () => import('../views/year2010.vue'),
     },
     {
-      path: '/year2011',
+      path: '/2011',
       name: '2011',
       component: () => import('../views/year2011.vue'),
     },
     {
-      path: '/year2012',
+      path: '/2012',
       name: '2012',
       component: () => import('../views/year2012.vue'),
     },
     {
-      path: '/year2013',
+      path: '/2013',
       name: '2013',
       component: () => import('../views/year2013.vue'),
     },
     {
-      path: '/year2014',
+      path: '/2014',
       name: '2014',
       component: () => import('../views/year2014.vue'),
     },
