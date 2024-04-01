@@ -30,7 +30,7 @@ import { RouterLink, RouterView } from 'vue-router'
   flex-wrap:wrap;
   flex-direction: row;
   position: absolute;
-  bottom:30%;
+  bottom:15%;
   width: 100%;
   place-items: center;
   right: 50%;
