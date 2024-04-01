@@ -11,12 +11,17 @@ import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, Li
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 function year(yearNum, api){
   const yearfilter = api.filter((num) => num.year == yearNum)
-  console.log(yearfilter)
   const deathnum = yearfilter.map((death) => death.deaths)
   console.log(deathnum)
-  let startnum = 0;
-  const totaldeath = yearfilter.reduce((totalnow, deathnow) => (totalnow.deaths + totalnow.deaths))
+  const totaldeath = yearfilter.reduce((totalnow, deathnow) => {
+    if (deathnow.deaths !== ".") {
+      return totalnow + parseInt(deathnow.deaths);
+    } else {
+      return totalnow;
+    }
+  }, 0);
   console.log(totaldeath)
+  return totaldeath;
 }
 
 export default {
@@ -38,14 +43,16 @@ export default {
     try {
       const url = await fetch('https://data.cityofnewyork.us/resource/jb7j-dtam.json')
       const data = await url.json();
-      const year2014 = year(2014, data)
-      const year2013 = year(2013, data)
-      const year2012 = year(2012, data)
-      const year2011 = year(2011, data)
-      const year2010 = year(2010, data)
-      const year2009 = year(2009, data)
-      const year2008 = year(2008, data)
-      const year2007 = year(2007, data)
+      this.chartData.datasets[0].data = [
+        year(2007, data),
+        year(2008, data),
+        year(2009, data),
+        year(2010, data),
+        year(2011, data),
+        year(2012, data),
+        year(2013, data),
+        year(2014, data)
+      ];
 
       this.loaded = true
     } catch (e) {
