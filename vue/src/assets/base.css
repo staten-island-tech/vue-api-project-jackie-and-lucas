@@ -62,7 +62,7 @@ body {
   place-items: center;
   min-height: 100vh;
   color: var(--color-text);
-  background-color: #9b89a9;
+  background-color: white;
   transition:
     color 0.5s,
     background-color 0.5s;
