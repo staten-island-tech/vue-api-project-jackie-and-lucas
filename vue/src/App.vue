@@ -1,17 +1,17 @@
 <template>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Overall Death Rate</RouterLink>
-        <RouterLink to="/2007">2007</RouterLink>
-        <RouterLink to="/2008">2008</RouterLink>
-        <RouterLink to="/2009">2009</RouterLink>
-        <RouterLink to="/2010">2010</RouterLink>
-        <RouterLink to="/2011">2011</RouterLink>
-        <RouterLink to="/2012">2012</RouterLink>
-        <RouterLink to="/2013">2013</RouterLink>
-        <RouterLink to="/2014">2014</RouterLink>
-      </nav>
-    </div>
+  <div class="wrapper">
+    <nav>
+      <RouterLink to="/">Overall Death Rate</RouterLink>
+      <RouterLink to="/2007">2007</RouterLink>
+      <RouterLink to="/2008">2008</RouterLink>
+      <RouterLink to="/2009">2009</RouterLink>
+      <RouterLink to="/2010">2010</RouterLink>
+      <RouterLink to="/2011">2011</RouterLink>
+      <RouterLink to="/2012">2012</RouterLink>
+      <RouterLink to="/2013">2013</RouterLink>
+      <RouterLink to="/2014">2014</RouterLink>
+    </nav>
+  </div>
   <RouterView />
 </template>
 
@@ -20,21 +20,22 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <style scoped>
-
 .logo {
   display: block;
   margin: 0 auto 2rem;
 }
-.wrapper{
-  display:flex;
-  flex-wrap:wrap;
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   position: absolute;
-  bottom:30%;
+  bottom: 20%;
   width: 100%;
   place-items: center;
   right: 50%;
 }
+
 nav {
   position: absolute;
   width: 100%;
@@ -55,11 +56,10 @@ nav a.router-link-exact-active:hover {
 nav a {
   display: inline-block;
   padding: 0 1rem;
-  color:black
+  color: black
 }
 
 nav a:first-of-type {
   border: 0;
 }
-
 </style>

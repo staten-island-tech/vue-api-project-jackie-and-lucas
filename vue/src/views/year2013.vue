@@ -1,8 +1,15 @@
 <template>
-    <div class="container">
-        <Pie id="leading_cause" v-if="loaded" :data="lcData" />
-        <Pie id="male_female" v-if="loaded" :data="mfData" />
-        <Pie id="ethnicity" v-if="loaded" :data="ethData" />
+    <div class="names">
+        <h1 class="leading">Leading Causes</h1>
+        <h1 class="gender">Gender Ratio</h1>
+        <h1 class="ethnicity">Ethnicity</h1>
+    </div>
+    <div class="chartbox">
+        <div class="container">
+            <Pie id="leading_cause" v-if="loaded" :data="lcData" />
+            <Pie id="male_female" v-if="loaded" :data="mfData" />
+            <Pie id="ethnicity" v-if="loaded" :data="ethData" />
+        </div>
     </div>
 </template>
 
@@ -84,11 +91,11 @@ export default {
                 }]
         },
         ethData: {
-            labels: ["Asian and Pacific Islander", "Black Non-Hispanic",  "Other Race/ Ethnicity", "Hispanic", "White Non-Hispanic", "Not Stated/Unknown" ], // Add your actual ethnicities here
+            labels: ["Asian and Pacific Islander", "Black Non-Hispanic", "Other Race/ Ethnicity", "Hispanic", "White Non-Hispanic", "Not Stated/Unknown"], // Add your actual ethnicities here
             datasets: [
                 {
                     label: 'Deaths',
-                    backgroundColor: ['#ff0000', '#ff7f00', '#ffff00', '#ff00ff',  '#4b0082', '#ff4500'],
+                    backgroundColor: ['#ff0000', '#ff7f00', '#ffff00', '#ff00ff', '#4b0082', '#ff4500'],
                     borderColor: `#000000`,
                     borderWidth: 1,
                     data: []
@@ -100,7 +107,7 @@ export default {
         try {
             const url = await fetch('https://data.cityofnewyork.us/resource/jb7j-dtam.json')
             const data = await url.json();
-            
+
             this.lcData.datasets[0].data = [
                 lc("Malignant Neoplasms (Cancer: C00-C97)", data),
                 lc("Accidents Except Drug Posioning (V01-X39, X43, X45-X59, Y85-Y86)", data),
@@ -147,16 +154,51 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  width: 55%;
+.names {
+    position: absolute;
+    place-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    right: 2%;
+    top: 10%;
+    color: black;
+    gap: 19%;
 }
 
-canvas {
-  width: 50%;
-  height: 50%;
+.chartbox {
+    position: absolute;
+    place-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 15%;
+}
+
+.chartbox {
+    position: absolute;
+    place-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 15%;
+}
+
+.container {
+    width: 30%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
 </style>
